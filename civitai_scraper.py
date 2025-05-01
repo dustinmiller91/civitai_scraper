@@ -36,13 +36,13 @@ def create_webdriver(profile_path):
 def render_html(driver, url):
     driver.get(url)
 
-    # wait for the product grid to load
+    # wait for everything to load
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CLASS_NAME, "mantine-Text-root"))
     )
     sleep(2)
 
-    # print the complete HTML after JavaScript execution
+    # return the complete HTML after JavaScript execution
     src = driver.page_source
     return src
 
